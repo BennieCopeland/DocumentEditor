@@ -1,0 +1,9 @@
+## Maintains this empty directory in GIT for the database.
+## Entity Framework requires that the App_Data folder exists.
+## It cannot create the development database if this folder does not exist.
+
+# Ignore everything in this directory
+*
+
+# Don't ignore the .gitignore file
+!.gitignore

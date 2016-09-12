@@ -1,0 +1,53 @@
+﻿@model DocumentEditor.Controllers.Home.Index.ViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div id="newDocumentModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">New Document</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Title">Document Title</label>
+                        @Html.TextBox("Title", string.Empty, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<h2>Index</h2>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newDocumentModal">New Document</button>
+
+<div id="Documents">
+    <ul>
+        @foreach(var document in Model.Documents)
+        {
+            <li>@document.Title</li>
+        }
+    </ul>
+</div>
+
+
+@section scripts
+{
+    <script>
+
+    </script>
+}
